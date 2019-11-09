@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.0.0">
@@ -50,13 +50,13 @@
   };
 </script>
 
-  <meta name="description" content="[题解]2019.11.5 背包题意给定一个01背包和n个物品，背包的容积为k，求有多少种选择方法使得背包再也放不下余下的任意物品。 分析此题用动规做法，用f[j]表示装满j体积的方案数，那么因为要求的是求不能再放下其他物品的方案数，假设第i个物品为不能放下的物品中体积最小的，那么体积比第i个物品还小的肯定都已经放入了背包中，因为此时背包不能放下第i个物品，所以背包还剩余的体积有可能是0到v[i]">
+  <meta name="description" content="[题解]2019.11.5 背包题意给定一个01背包和n个物品，背包的容积为k，求有多少种选择方法使得背包再也放不下余下的任意物品。">
 <meta name="keywords" content="OI,动态规划,题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[题解]2019.11.5 背包">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;05&#x2F;%E9%A2%98%E8%A7%A3-2019-11-5-%E8%83%8C%E5%8C%85&#x2F;index.html">
 <meta property="og:site_name" content="王德成的博客">
-<meta property="og:description" content="[题解]2019.11.5 背包题意给定一个01背包和n个物品，背包的容积为k，求有多少种选择方法使得背包再也放不下余下的任意物品。 分析此题用动规做法，用f[j]表示装满j体积的方案数，那么因为要求的是求不能再放下其他物品的方案数，假设第i个物品为不能放下的物品中体积最小的，那么体积比第i个物品还小的肯定都已经放入了背包中，因为此时背包不能放下第i个物品，所以背包还剩余的体积有可能是0到v[i]">
+<meta property="og:description" content="[题解]2019.11.5 背包题意给定一个01背包和n个物品，背包的容积为k，求有多少种选择方法使得背包再也放不下余下的任意物品。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-11-05T23:08:35.027Z">
 <meta name="twitter:card" content="summary">
@@ -104,12 +104,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -250,7 +250,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="题解-2019-11-5-背包"><a href="#题解-2019-11-5-背包" class="headerlink" title="[题解]2019.11.5 背包"></a>[题解]2019.11.5 背包</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>给定一个01背包和n个物品，背包的容积为k，求有多少种选择方法使得背包再也放不下余下的任意物品。</p>
+        <h3 id="题解-2019-11-5-背包"><a href="#题解-2019-11-5-背包" class="headerlink" title="[题解]2019.11.5 背包"></a>[题解]2019.11.5 背包</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>给定一个01背包和n个物品，背包的容积为k，求有多少种选择方法使得背包再也放不下余下的任意物品。</p><a id="more"></a>
 <h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>此题用动规做法，用<code>f[j]</code>表示装满j体积的方案数，那么因为要求的是求不能再放下其他物品的方案数，假设第i个物品为不能放下的物品中体积最小的，那么体积比第i个物品还小的肯定都已经放入了背包中，因为此时背包不能放下第i个物品，所以背包还剩余的体积有可能是0到v[i]-1，这样的话只需要计算出用比v[i]大的物品填满<code>k-(比v[i]小的物品的体积总和)-j(j从0-v[i]-1枚举)</code>的空间的方案数就行了。  </p>
 <p>到这一步大概已经看出，使用这样的算法需要用排序来使v[i]数组有序，我们从小到大排序后，从后向前枚举i，这样就可以保证在跑用比v[i]大的物品装满j体积空间是无后效性（不太好懂的话可以看看代码辅助理解），同时用一个sum保存前i-1个物品的体积和来提高效率（sum的初始值为所有物品的总和，每枚举到一个i，<code>sum-=v[i]</code>就可以使sum记录的是前i-1个物品的体积和）。</p>
 <p>这部分的代码如下</p>
@@ -274,6 +274,18 @@
 
         
 
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/11/09/11-7%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="[学习笔记]2019.11">
+                  [学习笔记]2019.11 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
       </footer>
     
   </article>
@@ -326,20 +338,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -436,5 +448,9 @@
 
   
 
+  
+
+  <script type="text/javascript" src="/js/src/click.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
+
 </html>
