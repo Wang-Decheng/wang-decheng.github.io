@@ -41,8 +41,8 @@ custom_file_path:
 
 favicon:
   #favicon.ico
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
+  small: /images/favicon16.ico
+  medium: /images/favicon32.ico
   apple_touch_icon: /images/apple-touch-icon-next.png
   safari_pinned_tab: /images/logo.svg
   #android_manifest: /images/manifest.json
@@ -160,7 +160,7 @@ sidebar:
   #  - always  expand for all pages automatically.
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  totally remove sidebar including sidebar toggle.
-  display: remove
+  display: post
 
   # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).
   offset: 12
